@@ -1,8 +1,4 @@
-resource "google_compute_network" "our_development_network" {
-    name =  "devnetwork"
-    auto_create_subnetworks = true
-}
-
+#Google Compute Platform set up. 
 resource "google_compute_subnetwork" "dev-subnet" {
     ip_cidr_range = "10.0.1.0/24"
     name = "devsubnet"
@@ -11,16 +7,8 @@ resource "google_compute_subnetwork" "dev-subnet" {
 }
 
 
-resource "aws_vpc" "environment-example-two" {
-    cidr_block = "10.0.0.0/16"
-    enable_dns_hostnames = true
-    enable_dns_support = true
-    # tags {
-    #     Name = "terraform-aws-vpc-example-two"
-    # }
 
-} 
-
+# AWS subnet set up. 
 resource "aws_subnet" "subnet1" {
     cidr_block = "${cidrsubnet(aws_vpc.environment-example-two.cidr_block, 3, 1)}"
     vpc_id = "${aws_vpc.environment-example-two.id}"
@@ -43,12 +31,8 @@ resource "aws_security_group" "subnetsecurity" {
   }
 }
 
-resource "azurerm_resource_group" "azy_network" {
-    location = "West us"
-    name = "devresgrp"
-  
-}
 
+# Azure subnet setup. 
 resource "azurerm_virtual_network" "blue_virtual_network" {
     address_space = ["10.0.0.0/16"]
     location = "West US"
@@ -67,4 +51,3 @@ resource "azurerm_virtual_network" "blue_virtual_network" {
     #     environment = "blue-world-finder"
     # }
 }
-
