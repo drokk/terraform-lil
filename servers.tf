@@ -41,9 +41,9 @@
 
 # }
 
-resource "aws_instance" "secondserver" {
-    ami = "${data.aws_ami.ubuntu.id}"
-    instance_type = "t2.micro"
-    subnet_id = "${aws_subnet.subnet2.id}"
+# resource "aws_instance" "secondserver" {
+#     ami = "${data.aws_ami.ubuntu.id}"
+#     instance_type = "t2.micro"
+#     subnet_id = "${aws_subnet.subnet2.id}"
   
-}
+# }
