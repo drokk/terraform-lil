@@ -32,7 +32,7 @@ resource "aws_security_group" "subnetsecurity" {
 }
 
 
-Azure subnet setup. 
+#Azure subnet setup. 
 resource "azurerm_virtual_network" "blue_virtual_network" {
     address_space = ["10.0.0.0/16"]
     location = "West US"
