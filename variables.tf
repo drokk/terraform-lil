@@ -7,6 +7,16 @@ variable "network_name" {
 
 }
 
+variable "new_value" {
+
+
+}
+
+variable "newmap" {
+
+}
+
+
 variable "gcp_ip_cidr_range" {
   default     = "10.0.0.0/16"
   type        = "string"
@@ -29,6 +39,16 @@ variable "subnet_names" {
     subnet3 = "subnetthree"
   }
 
+}
+
+// output variables
+
+output "first_output" {
+  value = "this is the value through execution"
+}
+
+output "aws_cidr_subnet1" {
+  value = "${aws_subnet.subnet1.cidr_block}"
 }
 
 
